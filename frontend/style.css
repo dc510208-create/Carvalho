@@ -1,0 +1,317 @@
+/* ============================================
+   TIENDA DEPORTIVA — tema "marcador"
+   Paleta: fondo carbón, tarjetas grafito, acento volt + naranja señal
+   Tipografía: Bebas Neue (display condensada) + Inter (texto)
+   ============================================ */
+
+:root {
+    --bg: #10151b;
+    --surface: #1a212a;
+    --surface-2: #212a35;
+    --border: #2a3340;
+    --texto: #eef1f4;
+    --muted: #8b96a5;
+    --volt: #d4ff3f;
+    --naranja: #ff5b35;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    background:
+        radial-gradient(circle at 100% 0%, rgba(212,255,63,0.06), transparent 40%),
+        var(--bg);
+    color: var(--texto);
+    padding: 0 0 40px;
+}
+
+h1, h2, .marcador__numero {
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    letter-spacing: 0.03em;
+}
+
+/* ---------- HEADER: marcador ---------- */
+
+.marcador {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 40px;
+    border-bottom: 3px solid var(--volt);
+    background: linear-gradient(180deg, #151c24, var(--bg));
+}
+
+.marcador__kicker {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--volt);
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.marcador__titulo {
+    font-size: 2.6rem;
+    line-height: 1;
+    color: var(--texto);
+}
+
+.marcador__titulo span {
+    color: var(--volt);
+}
+
+.marcador__placa {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border: 2px solid var(--border);
+    padding: 8px 16px;
+    border-radius: 4px;
+}
+
+.marcador__numero {
+    font-size: 2rem;
+    color: var(--naranja);
+}
+
+.marcador__label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    line-height: 1.3;
+}
+
+/* ---------- LAYOUT PRINCIPAL: dos columnas ---------- */
+
+.cancha {
+    display: grid;
+    grid-template-columns: 320px minmax(0, 1fr);
+    gap: 24px;
+    padding: 32px 40px;
+    align-items: start;
+}
+
+@media (max-width: 860px) {
+    .cancha { grid-template-columns: 1fr; }
+    .marcador { flex-direction: column; align-items: flex-start; gap: 16px; }
+}
+
+/* ---------- FICHA (formulario) ---------- */
+
+.ficha {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--naranja);
+    border-radius: 6px;
+    padding: 22px;
+    position: sticky;
+    top: 24px;
+    min-width: 0;
+}
+
+.ficha__eyebrow {
+    display: inline-block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--naranja);
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.ficha h2 {
+    font-size: 1.5rem;
+    margin-bottom: 18px;
+}
+
+.ficha form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.ficha label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    font-weight: 600;
+    min-width: 0;
+}
+
+.ficha__fila {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    min-width: 0;
+}
+
+.ficha input {
+    width: 100%;
+    min-width: 0;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 10px 12px;
+    color: var(--texto);
+    font-size: 0.9rem;
+    font-family: 'Inter', sans-serif;
+    text-transform: none;
+    letter-spacing: normal;
+    font-weight: 400;
+}
+
+.ficha input:focus {
+    outline: none;
+    border-color: var(--volt);
+}
+
+.ficha button {
+    margin-top: 6px;
+    background: var(--volt);
+    color: #10151b;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.ficha button:hover {
+    background: #e4ff70;
+    transform: translateY(-1px);
+}
+
+/* ---------- CATÁLOGO ---------- */
+
+.catalogo__encabezado {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.catalogo__encabezado h2 {
+    font-size: 1.6rem;
+    white-space: nowrap;
+}
+
+.catalogo__linea {
+    flex: 1;
+    height: 2px;
+    background: repeating-linear-gradient(90deg, var(--border) 0 8px, transparent 8px 14px);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 18px;
+    min-width: 0;
+}
+.tarjeta {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    text-align: left;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+    min-width: 0;
+}
+
+.tarjeta:hover {
+    border-color: var(--volt);
+    transform: translateY(-3px);
+}
+
+.tarjeta img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid var(--border);
+    clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+}
+
+.tarjeta h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 12px 14px 0;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.marca {
+    padding: 2px 14px 0;
+    color: var(--muted);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+}
+
+.precio {
+    padding: 8px 14px 0;
+    color: var(--volt);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.02em;
+}
+
+.detalle {
+    padding: 4px 14px 12px;
+    font-size: 0.78rem;
+    color: var(--muted);
+}
+
+.btn-eliminar {
+    display: block;
+    width: 100%;
+    background: transparent;
+    color: var(--naranja);
+    border: none;
+    border-top: 1px solid var(--border);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.btn-eliminar:hover {
+    background: rgba(255, 91, 53, 0.1);
+}
+
+.vacio {
+    color: var(--muted);
+    text-align: center;
+    padding: 30px 0;
+    grid-column: 1 / -1;
+}
+
+/* ---------- FOOTER ---------- */
+
+.pie {
+    text-align: center;
+    padding: 24px;
+    color: var(--muted);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--border);
+    margin-top: 20px;
+}
+
+.pie span {
+    color: var(--volt);
+    font-weight: 700;
+}

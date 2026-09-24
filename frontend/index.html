@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Deportiva · Panel de catálogo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="marcador">
+        <div class="marcador__marca">
+            <span class="marcador__kicker">Panel de catálogo</span>
+            <h1 class="marcador__titulo">TIENDA <span>DEPORTIVA</span></h1>
+        </div>
+        <div class="marcador__placa">
+            <span class="marcador__numero">01</span>
+            <span class="marcador__label">Temporada<br>en curso</span>
+        </div>
+    </header>
+
+    <main class="cancha">
+
+        <aside class="ficha">
+            <span class="ficha__eyebrow">Nueva entrada</span>
+            <h2>Registrar prenda</h2>
+            <form id="form-ropa">
+                <label>Nombre
+                    <input type="text" id="nombre" placeholder="Ej. Camiseta Running" required>
+                </label>
+                <label>Marca
+                    <input type="text" id="marca" placeholder="Ej. Nike">
+                </label>
+                <div class="ficha__fila">
+                    <label>Precio
+                        <input type="number" step="0.01" id="precio" placeholder="0.00" required>
+                    </label>
+                    <label>Talla
+                        <input type="text" id="talla" placeholder="M" required>
+                    </label>
+                </div>
+                <div class="ficha__fila">
+                    <label>Stock
+                        <input type="number" id="stock" placeholder="0" required>
+                    </label>
+                    <label>Imagen (URL)
+                        <input type="text" id="imagen_url" placeholder="https://...">
+                    </label>
+                </div>
+                <button type="submit">Sumar al catálogo →</button>
+            </form>
+        </aside>
+
+        <section class="catalogo">
+            <div class="catalogo__encabezado">
+                <h2>Catálogo</h2>
+                <span class="catalogo__linea"></span>
+            </div>
+            <div class="grid" id="grid-ropa">
+                <p class="vacio">Cargando prendas...</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="pie">
+        <span>Tienda Deportiva</span> — gestión simple de inventario
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

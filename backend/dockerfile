@@ -1,0 +1,9 @@
+FROM php:8.2-apache
+
+# Instalamos la extensión de PHP necesaria para conectarnos a MySQL
+RUN docker-php-ext-install pdo pdo_mysql
+
+# Copiamos el código del backend al directorio que sirve Apache
+COPY . /var/www/html/
+
+EXPOSE 80
