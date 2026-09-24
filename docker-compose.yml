@@ -27,7 +27,7 @@ services:
     container_name: tienda_backend  
     restart: unless-stopped
     ports:
-      - "8000:80"
+      - "8099:80"
     depends_on:
       db:
         condition: service_healthy
